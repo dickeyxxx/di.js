@@ -17,5 +17,6 @@ before_script:
 
 script:
   - karma start --single-run --browsers SL_Chrome --reporters dots
+  - gulp test
 
 after_script:

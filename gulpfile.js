@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var pipe = require('pipe/gulp');
 var traceur = require('gulp-traceur');
 var connect = require('gulp-connect');
+var jasmine = require('gulp-jasmine');
+var karma = require('gulp-karma');
 
 
 var path = {
@@ -51,7 +53,15 @@ gulp.task('serve', connect.server({
 }));
 
 
-
+gulp.task('test_node', function() {
+  return gulp.src('example/node/**/*.spec.js')
+    .pipe(jasmine());
+});
+gulp.task('test_karma', function() {
+  gulp.src('./doesnotexist') // gets around https://github.com/lazd/gulp-karma/issues/9
+    .pipe(karma({configFile: 'karma.conf.js', action: 'run'}));
+});
+gulp.task('test', ['test_node', 'test_karma']);
 
 // This is a super nasty, hacked release task.
 // TODO(vojta): fix gulp-git and clean this up

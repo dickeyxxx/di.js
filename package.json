@@ -32,10 +32,12 @@
     "karma-traceur-preprocessor": "vojtajina/karma-traceur-preprocessor#traceur-as-peer",
     "pipe": "angular/pipe#remove-transitive-deps",
     "requirejs": "2.1.10",
-    "through2": "~0.4.1"
+    "through2": "~0.4.1",
+    "gulp-jasmine": "^0.2.0",
+    "gulp-karma": "0.0.4"
   },
   "scripts": {
-    "test": "karma start --single-run"
+    "test": "gulp test"
   },
   "author": "Vojta Jína <vojta.jina@gmail.com>",
   "license": "Apache-2.0"
